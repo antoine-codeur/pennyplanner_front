@@ -1,6 +1,13 @@
+import React from 'react';
+import TransactionList from '../../components/TransctionList';
+
 const TransactionPage = () => {
-    return <div>Welcome to the Transaction Page!</div>;
-  };
-  
-  export default TransactionPage;
-  
+  return (
+    <div>
+      <h1>Welcome to the Transaction Page!</h1>
+      <TransactionList />
+    </div>
+  );
+};
+
+export default TransactionPage;

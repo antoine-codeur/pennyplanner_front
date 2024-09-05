@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// src/views/Auth/RegisterPage/Register.jsx
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle registration logic here
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Password:', password);
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:8000/api/v1/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json',
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Registration failed');
+      }
+
+      const data = await response.json();
+      login(data.token);
+      navigate('/'); // Redirect to home page
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -45,6 +68,7 @@ const Register = () => {
             required 
           />
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Register</button>
       </form>
       <p>

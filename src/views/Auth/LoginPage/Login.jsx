@@ -1,15 +1,39 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+// src/views/Auth/LoginPage/Login.jsx
+import React, { useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    setError('');
+
+    try {
+      const response = await fetch('http://localhost:8000/api/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'accept': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Login failed');
+      }
+
+      const data = await response.json();
+      login(data.token);
+      navigate('/'); // Redirect to home page
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -34,6 +58,7 @@ const Login = () => {
             required 
           />
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <button type="submit">Login</button>
       </form>
       <p>
