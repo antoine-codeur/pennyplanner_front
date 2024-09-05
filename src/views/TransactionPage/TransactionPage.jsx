@@ -1,5 +1,5 @@
 import React from 'react';
-import TransactionList from '../../components/TransctionList';
+import TransactionList from '../../components/TransactionList';
 
 const TransactionPage = () => {
   return (
