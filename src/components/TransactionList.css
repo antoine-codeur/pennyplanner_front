@@ -1,0 +1,33 @@
+.transaction-table{
+    padding: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1 0 0;
+
+    border-radius: 20px;
+    background-color: #EADDDB;
+    border: 3px solid #1D272F;
+    min-width: 100%;
+}
+.transaction-table td{
+    
+
+
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    color: #1D272F;
+    transition: all 0.3s ease;
+}
+.amount{
+    font-weight: 700;
+}
+.income-amount {
+    color: green !important;
+  }
+  
+.expense-amount {
+    color: red !important;
+}
+  
