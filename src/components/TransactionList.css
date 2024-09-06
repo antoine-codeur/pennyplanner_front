@@ -23,11 +23,17 @@
 .amount{
     font-weight: 700;
 }
-.income-amount {
+.income-amount{
     color: green !important;
-  }
-  
-.expense-amount {
+}
+.expense-amount{
     color: red !important;
 }
-  
+.transaction-description {
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+}

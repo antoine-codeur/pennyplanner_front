@@ -39,10 +39,12 @@ const CategorySpendingPieChart = () => {
   const processData = (transactions) => {
     const categoryData = transactions.reduce((acc, transaction) => {
       const { amount, category } = transaction;
-      if (!acc[category.name]) {
-        acc[category.name] = 0;
+      if (category && category.name) { // Vérifie que category et category.name existent
+        if (!acc[category.name]) {
+          acc[category.name] = 0;
+        }
+        acc[category.name] += parseFloat(amount);
       }
-      acc[category.name] += parseFloat(amount);
       return acc;
     }, {});
 
