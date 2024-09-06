@@ -1,6 +1,14 @@
+import React from 'react';
+import CategorySpendingPieChart from '../../components/CategorySpendingPieChart';
+
+
 const HomePage = () => {
-    return <div>Welcome to the Home Page!</div>;
-  };
-  
-  export default HomePage;
-  
+    return (
+        <div>
+            <h1>HomePage</h1>
+            <CategorySpendingPieChart />
+        </div>
+    );
+};
+
+export default HomePage;

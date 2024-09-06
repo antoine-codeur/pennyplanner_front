@@ -1,11 +1,36 @@
-header {
-    background-color: #f0f0f0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+*,*::after,*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat Alternates', sans-serif;
+    position: relative;
+}
+main{
+    
+}
+header{
+    margin: 10px;
     padding: 10px;
     text-align: center;
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    
+    background-color: #1D272F;
+    color: white;
+    border-radius: 30px;
 }
-  
+header a{
+    color: white;
+    text-decoration: none;
+}
 footer {
-    background-color: #f0f0f0;
     padding: 10px;
     text-align: center;
     position: fixed;

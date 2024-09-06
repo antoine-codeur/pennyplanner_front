@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getToken } from '../../auth';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import CategorySpendingPieChart from '../../components/CategorySpendingPieChart';
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
@@ -37,6 +38,8 @@ const CategoriesPage = () => {
   return (
     <div>
       <h2>Categories</h2>
+      <CategorySpendingPieChart />
+
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <ul>
         {categories.map(category => (
