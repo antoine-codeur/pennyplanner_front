@@ -13,12 +13,17 @@
     width: fit-content;
 
     background: #1D272F;
-    color: white;
-    font-family: "Montserrat Alternates";
+    color: #FFF;
     text-decoration: none;
-    transition: all 0.3s ease;
     border-radius: 100px;
 
+    transition: all 0.3s ease;
+}
+.cta span{
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 i.fa{
     display: flex;
