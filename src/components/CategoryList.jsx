@@ -80,10 +80,11 @@ const CategoryList = () => {
         throw new Error('Failed to create category');
       }
       const data = await response.json();
-      if (data && data.data) {
+      if (data && data.data && data.data.id) {
         setCategories(prev => [...prev, {
-          ...data.data,
-          icon: data.data.icon || ICONS[0].class // Provide a default icon if null
+          id: data.data.id,
+          name: data.data.name || newCategoryName,
+          icon: data.data.icon || newCategoryIcon
         }]);
         setNewCategoryName('');
         setNewCategoryIcon(ICONS[0].class); // Reset to default icon
@@ -114,7 +115,7 @@ const CategoryList = () => {
         throw new Error('Failed to update category');
       }
       const data = await response.json();
-      if (data && data.data) {
+      if (data && data.data && data.data.id) {
         setCategories(prev => prev.map(cat => cat.id === data.data.id ? {
           ...data.data,
           icon: data.data.icon || ICONS[0].class // Provide a default icon if null
