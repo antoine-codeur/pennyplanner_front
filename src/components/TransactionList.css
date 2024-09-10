@@ -11,9 +11,6 @@
     min-width: 100%;
 }
 .transaction-table td{
-    
-
-
     background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -36,4 +33,32 @@
     overflow: hidden;
     text-overflow: ellipsis;
     position: relative;
+}
+@media (max-width: 600px) {
+    .transaction-table{
+        gap: 0px;
+    }
+    .transaction-table .type-column,
+    .transaction-table .date-column {
+        display: none;
+    }
+  
+    .transaction-table .category-title {
+        display: none;
+    }
+  
+    .transaction-table .category-icon {
+        display: flex;
+        justify-content: center;
+    }
+    .transaction-table td{
+        background-color: transparent;
+        border-radius: 0px;
+        border-bottom: 1px solid #1D272F;
+        transition: all 0.3s ease;
+    }
+}
+  
+.category-icon {
+    font-size: 1.5em;
 }

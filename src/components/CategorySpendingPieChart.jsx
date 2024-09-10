@@ -73,7 +73,7 @@ const CategorySpendingPieChart = () => {
   };
 
   return (
-    <div style={{ width: '500px', height: '500px' }}>
+    <div style={{ width: '100%', height: '500px' }}>
       <h3>Dépenses par Catégorie</h3>
       <Pie data={chartData} options={options} />
     </div>

@@ -197,42 +197,16 @@ const TransactionList = () => {
       {error && <p style={{ color: 'red' }}>{error}</p>}
       
       <div className="filter-controls">
-        <select onChange={(e) => setFilterType(e.target.value)} value={filterType}>
-          <option value="monthly">Monthly</option>
-          <option value="yearly">Yearly</option>
-        </select>
-        
-        {filterType === 'monthly' && (
-          <>
-            <select onChange={(e) => setSelectedMonth(e.target.value)} value={selectedMonth}>
-              {MONTHS.map((month, index) => (
-                <option key={index} value={month}>{month}</option>
-              ))}
-            </select>
-            <select onChange={(e) => setSelectedYear(Number(e.target.value))} value={selectedYear}>
-              {[...Array(10)].map((_, i) => (
-                <option key={i} value={new Date().getFullYear() - i}>{new Date().getFullYear() - i}</option>
-              ))}
-            </select>
-          </>
-        )}
-
-        {filterType === 'yearly' && (
-          <select onChange={(e) => setSelectedYear(Number(e.target.value))} value={selectedYear}>
-            {[...Array(10)].map((_, i) => (
-              <option key={i} value={new Date().getFullYear() - i}>{new Date().getFullYear() - i}</option>
-            ))}
-          </select>
-        )}
+        {/* Vos contrôles de filtre */}
       </div>
       
       <table className="transaction-table">
         <thead>
           <tr>
-            <th>Type</th>
+            <th className="type-column">Type</th>
             <th>Amount</th>
             <th>Description</th>
-            <th>Date</th>
+            <th className="date-column">Date</th>
             <th>Category</th>
             <th>Actions</th>
           </tr>
@@ -240,7 +214,7 @@ const TransactionList = () => {
         <tbody>
           {filteredTransactions.map(transaction => (
             <tr key={transaction.id}>
-              <td>
+              <td className="type-column">
                 {editingTransactionId === transaction.id ? (
                   <select
                     name="type"
@@ -281,7 +255,7 @@ const TransactionList = () => {
                   transaction.description
                 )}
               </td>
-              <td>
+              <td className="date-column">
                 {editingTransactionId === transaction.id ? (
                   <input
                     type="date"
@@ -307,8 +281,8 @@ const TransactionList = () => {
                   </select>
                 ) : (
                   <div>
-                    <i className={`fa ${transaction.category?.icon || 'fa-tag'}`}></i>
-                    {transaction.category?.name || 'N/A'}
+                    <i className={`fa ${transaction.category?.icon || 'fa-tag'} category-icon`}></i>
+                    <span className="category-title">{transaction.category?.name || 'N/A'}</span>
                   </div>
                 )}
               </td>

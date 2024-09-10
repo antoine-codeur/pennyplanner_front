@@ -101,7 +101,7 @@ const TransactionLineChart = () => {
           <option key={month} value={month}>{month}</option>
         ))}
       </select>
-      <div style={{ width: '600px', height: '400px' }}>
+      <div style={{ width: '100%', height: '400px' }}>
         {chartData ? <Line data={chartData} /> : <p>Loading chart...</p>}
       </div>
     </div>

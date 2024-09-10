@@ -40,7 +40,6 @@ const CategoriesPage = () => {
     <div>
       <h1>Welcome to Category page!</h1>
       <CategoryList />
-      <CategorySpendingPieChart />
     </div>
   );
 };

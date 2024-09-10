@@ -1,5 +1,6 @@
 import React from 'react';
 import CategorySpendingPieChart from '../../components/CategorySpendingPieChart';
+import TransactionLineChart from '../../components/TransactionLineChart';
 
 
 const HomePage = () => {
@@ -7,6 +8,7 @@ const HomePage = () => {
         <div>
             <h1>HomePage</h1>
             <CategorySpendingPieChart />
+            <TransactionLineChart />
         </div>
     );
 };

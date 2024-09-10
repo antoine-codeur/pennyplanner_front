@@ -67,7 +67,7 @@ const TransactionChart = () => {
   };
 
   return (
-    <div style={{ width: '600px', height: '400px' }}>
+    <div style={{ width: '100%', height: '400px' }}>
       <Bar data={chartData} />
     </div>
   );
