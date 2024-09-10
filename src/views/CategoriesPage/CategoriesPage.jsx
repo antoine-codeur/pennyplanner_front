@@ -38,18 +38,9 @@ const CategoriesPage = () => {
 
   return (
     <div>
-      <h2>Categories</h2>
-      <CategorySpendingPieChart />
+      <h1>Welcome to Category page!</h1>
       <CategoryList />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <ul>
-        {categories.map(category => (
-          <li key={category.id}>
-            <i className={`fa ${category.icon}`}></i>
-            <p>{category.name}</p>
-          </li>
-        ))}
-      </ul>
+      <CategorySpendingPieChart />
     </div>
   );
 };
